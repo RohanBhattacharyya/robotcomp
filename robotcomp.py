@@ -465,9 +465,6 @@ def _run_turn(
     except ActionLimitError:
         # The bot already used its first action; ignore any extra attempt.
         pass
-    except Exception:
-        # A crashing bot simply loses its action for this tick.
-        return None
 
     action = api.action_taken()
     if action is None:
