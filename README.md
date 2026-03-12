@@ -500,36 +500,7 @@ Using `api.remember("move_pattern", move_pattern)` stores the generator once and
 
 ## Example Strategies
 
-## 1. Aggressive Chaser
-
-```python
-def aggressive(api):
-    if api.robot_in_front():
-        api.tag_forward()
-    elif api.robot_in_back():
-        api.tag_back()
-    elif api.robot_in_left():
-        api.tag_left()
-    elif api.robot_in_right():
-        api.tag_right()
-    else:
-        delta = api.direction_to_opponent()
-
-        if delta["dx"] > 0 and api.can_move_right():
-            api.move_right()
-        elif delta["dx"] < 0 and api.can_move_left():
-            api.move_left()
-        elif delta["dy"] > 0 and api.can_move_back():
-            api.move_back()
-        elif delta["dy"] < 0 and api.can_move_forward():
-            api.move_forward()
-        else:
-            api.wait()
-```
-
----
-
-## 2. Patrol Pattern
+## 1. Patrol Pattern
 
 ```python
 def patrol_pattern():
@@ -575,7 +546,7 @@ def patrol_bot(api):
 
 ---
 
-## 3. Row/Column Hunter
+## 2. Row/Column Hunter
 
 ```python
 def line_hunter(api):
